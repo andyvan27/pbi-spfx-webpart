@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "pbi-report-viewer-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/pbiReportViewer/PbiReportViewerWebPart.js",
+          "manifest": "./src/webparts/pbiReportViewer/PbiReportViewerWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "PbiReportViewerWebPartStrings": "lib/webparts/pbiReportViewer/loc/{locale}.js"
+  }
+}

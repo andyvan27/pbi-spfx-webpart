@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "pbi-spfx-webpart-client-side-solution",
+    "id": "19a500fa-8d1e-4b4c-8b71-dd3e1ce49d21",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.17.4"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "pbi-spfx-webpart description"
+      },
+      "longDescription": {
+        "default": "pbi-spfx-webpart description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "pbi-spfx-webpart Feature",
+        "description": "The feature that activates elements of the pbi-spfx-webpart solution.",
+        "id": "c2f04b76-5889-4559-b899-5293c0c009c8",
+        "version": "1.0.0.0"
+      }
+    ],
+    "webApiPermissionRequests": [
+      {
+        "resource": "Power BI Service",
+        "scope": "Group.Read.All"
+      },
+      {
+        "resource": "Power BI Service",
+        "scope": "Dataset.Read.All"
+      },
+      {
+        "resource": "Power BI Service",
+        "scope": "Report.Read.All"
+      },
+      {
+        "resource": "Power BI Service",
+        "scope": "Dashboard.Read.All"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/pbi-spfx-webpart.sppkg"
+  }
+}
