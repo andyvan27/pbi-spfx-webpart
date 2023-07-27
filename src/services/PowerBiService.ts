@@ -24,7 +24,8 @@ export class PowerBiService {
   private static workspacesUrl = "https://api.powerbi.com/v1.0/myorg/groups/";
 
 
-  private static adalAccessTokenStorageKey: string = "adal.access.token.keyhttps://analysis.windows.net/powerbi/api";
+  //private static adalAccessTokenStorageKey: string = "adal.access.token.keyhttps://analysis.windows.net/powerbi/api";
+  private static adalAccessTokenStorageKey: string = '{"authority":"https://login.microsoftonline.com/c1fd1e38-c6cf-48f0-962f-0cd641f11d2d/","clientId":"d382a6b7-2993-4480-a488-f8fc5d222f27","scopes":"https://analysis.windows.net/powerbi/api/Dashboard.Read.All https://analysis.windows.net/powerbi/api/Dataset.Read.All https://analysis.windows.net/powerbi/api/Group.Read.All https://analysis.windows.net/powerbi/api/Report.Read.All https://analysis.windows.net/powerbi/api/.default","homeAccountIdentifier":"ZTdhZjRiOWItOWE4Yy00MzA3LWEwNjItYzIxMGEzMzU1NTc5.YzFmZDFlMzgtYzZjZi00OGYwLTk2MmYtMGNkNjQxZjExZDJk"}';
 
   public static GetWorkspaces = (serviceScope: ServiceScope): Promise<PowerBiWorkspace[]> => {
     let pbiClient: AadHttpClient = new AadHttpClient(serviceScope, PowerBiService.powerbiApiResourceId);
@@ -60,7 +61,7 @@ export class PowerBiService {
             name: report.name,
             webUrl: report.webUrl,
             datasetId: report.datasetId,
-            accessToken: window.sessionStorage[PowerBiService.adalAccessTokenStorageKey]
+            accessToken: JSON.parse(window.sessionStorage[PowerBiService.adalAccessTokenStorageKey]).accessToken
           };
         });
       });
@@ -83,7 +84,7 @@ export class PowerBiService {
           name: reportsOdataResult.name,
           webUrl: reportsOdataResult.webUrl,
           datasetId: reportsOdataResult.datasetId,
-          accessToken: window.sessionStorage[PowerBiService.adalAccessTokenStorageKey]
+          accessToken: JSON.parse(window.sessionStorage[PowerBiService.adalAccessTokenStorageKey]).accessToken
         };
       });
   }
@@ -103,7 +104,7 @@ export class PowerBiService {
             id: dashboard.id,
             embedUrl: dashboard.embedUrl,
             displayName: dashboard.displayName,
-            accessToken: window.sessionStorage[PowerBiService.adalAccessTokenStorageKey]
+            accessToken: JSON.parse(window.sessionStorage[PowerBiService.adalAccessTokenStorageKey]).accessToken
           };
         });
       });
@@ -123,7 +124,7 @@ export class PowerBiService {
           id: dashboardOdataResult.id,
           embedUrl: dashboardOdataResult.embedUrl,
           displayName: dashboardOdataResult.displayName,
-          accessToken: window.sessionStorage[PowerBiService.adalAccessTokenStorageKey]
+          accessToken: JSON.parse(window.sessionStorage[PowerBiService.adalAccessTokenStorageKey]).accessToken
         };
       });
   }
